@@ -25,7 +25,7 @@ This provides more useful information because recycling systems can use the mate
 
 The main research question of this project was:
 
-**Can an neural network model accurately identify different types of waste from images, and can it outperform simpler classification methods?**
+**Can a neural network model accurately identify different types of waste from images, and can it outperform simpler classification methods?**
 
 ---
 
