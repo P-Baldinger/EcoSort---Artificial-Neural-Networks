@@ -176,7 +176,7 @@ The current dataset contains mostly clean images with one object at a time. Real
 Dirty,
 Damaged,
 Overlapping,
-Poorly lit,
+Poorly lit
 
 Future improvements could include:
 
