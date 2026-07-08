@@ -1,5 +1,8 @@
 # EcoSort: Teaching AI to Recognize Recyclable Materials Through Images
 
+GitHub repository:
+https://github.com/P-Baldinger/EcoSort---Artificial-Neural-Networks
+
 ## Introduction and Problem Statement
 
 Every day, millions of tons of waste are produced around the world. One major challenge in improving recycling systems is correctly identifying what materials objects are made from. Humans can easily recognize the difference between materials such as plastic, glass, and cardboard, but computers need to learn these patterns from examples.
