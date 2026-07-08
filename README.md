@@ -82,6 +82,7 @@ The model results compared to other approaches were:
 | ResNet-18 EcoSort | 88.6% |
 
 ![Model comparison](blog_figures/model_comparison.png)
+https://colab.research.google.com/drive/1LnbmKEdBGv60NltmRHv-WNA6FM7AgwzC#scrollTo=e4QER1FOS7iq&line=7&uniqifier=1
 
 The model performed especially well on:
 
@@ -102,6 +103,7 @@ The hardest categories were:
 The confusion matrix below shows how often the model correctly classified each material and where mistakes occurred.
 
 ![Confusion Matrix](blog_figures/confusion_matrix.png)
+https://colab.research.google.com/drive/1LnbmKEdBGv60NltmRHv-WNA6FM7AgwzC#scrollTo=j7rhq0UpS7it&line=6&uniqifier=1
 
 ---
 
@@ -120,6 +122,7 @@ The most common mistakes were:
 - Trash → Plastic
 
 ![Model mistakes](blog_figures/mistakes.png)
+https://colab.research.google.com/drive/1LnbmKEdBGv60NltmRHv-WNA6FM7AgwzC#scrollTo=kqqLAFwNgbDI&line=24&uniqifier=1
 
 Analyzing these mistakes helped show where future improvements could be made. A larger and more realistic dataset containing dirty, damaged, and overlapping objects would likely improve performance in real-world recycling environments.
 
