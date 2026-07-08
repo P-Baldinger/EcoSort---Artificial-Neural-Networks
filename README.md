@@ -20,6 +20,10 @@ The dataset used for this project is the TrashNet dataset:
 
 https://github.com/garythung/trashnet
 
+Github link:
+
+https://github.com/P-Baldinger/EcoSort---Artificial-Neural-Networks
+
 ## How EcoSort Works
 
 Humans recognize objects by looking at patterns. For example, glass usually has reflections, plastic often has a certain shape and texture, and cardboard has a unique surface appearance.
