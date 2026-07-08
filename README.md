@@ -33,7 +33,7 @@ Computers do not naturally understand these differences. Instead, they learn by 
 EcoSort was trained by showing an AI model thousands of pictures of different waste materials. The model looked for patterns in these images and learned how to classify new examples.
 
 Examples of images used to train EcoSort.
-<img width="1182" height="166" alt="image" src="https://github.com/user-attachments/assets/b8d6f53b-d74c-4a6d-80bd-a49383747bae" />
+![Dataset examples](619070220-b8d6f53b-d74c-4a6d-80bd-a49383747bae.png)
 
 ## The Data
 
@@ -123,7 +123,7 @@ The final ResNet-18 model achieved:
 This means the model correctly identified the material in almost 9 out of 10 test images.
 
 Comparison of EcoSort against other approaches.
-<img width="1189" height="390" alt="image" src="https://github.com/user-attachments/assets/04cca6d3-105e-4e4f-b896-495b70b7071a" />
+![Dataset examples](619071658-04cca6d3-105e-4e4f-b896-495b70b7071a.png)
 
 
 How Well Did EcoSort Perform?
@@ -146,7 +146,7 @@ Glass was difficult because it can look similar to plastic or metal. Trash was c
 
 Where the model made correct and incorrect predictions.
 
-<img width="565" height="526" alt="image" src="https://github.com/user-attachments/assets/afa956ef-9453-40a7-8f76-2cc34615aa59" />
+![Dataset examples](619072368-afa956ef-9453-40a7-8f76-2cc34615aa59.png)
 
 
 ## Understanding Mistakes
@@ -164,7 +164,7 @@ These mistakes are understandable because some materials look very similar.
 For example, a clear plastic bottle and a glass bottle may have similar shapes, colors, and reflections.
 
 Examples where EcoSort predicted the wrong material.
-<img width="1433" height="593" alt="image" src="https://github.com/user-attachments/assets/a352ea47-e07e-4f00-b693-cb1c8c4d6dfc" />
+![Dataset examples](619072514-a352ea47-e07e-4f00-b693-cb1c8c4d6dfc.png)
 
 
 ## Future Improvements
