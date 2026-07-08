@@ -55,7 +55,7 @@ Used to measure how well the final model worked on images it had never seen befo
 
 Keeping separate testing data helps make sure the model is actually learning instead of memorizing pictures.
 
-Teaching the AI Model
+## Teaching the AI Model
 
 Instead of building an AI model from the beginning, I used a method called transfer learning.
 
@@ -141,6 +141,7 @@ Trash: 72.7%
 Glass was difficult because it can look similar to plastic or metal. Trash was challenging because it contains many different objects that do not share one clear appearance.
 
 Where the model made correct and incorrect predictions.
+
 <img width="565" height="526" alt="image" src="https://github.com/user-attachments/assets/afa956ef-9453-40a7-8f76-2cc34615aa59" />
 
 
