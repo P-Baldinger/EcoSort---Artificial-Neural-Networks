@@ -1,5 +1,5 @@
-EcoSort: Teaching AI to Recognize Recyclable Materials Through Images
-Introduction
+# EcoSort: Teaching AI to Recognize Recyclable Materials Through Images
+## Introduction
 
 Every day, people throw away millions of tons of waste. One challenge with recycling is figuring out what materials objects are made from. Humans can easily tell the difference between a plastic bottle and a glass container, but computers need to learn how to recognize these differences.
 
@@ -20,7 +20,7 @@ The dataset used for this project is the TrashNet dataset:
 
 https://github.com/garythung/trashnet
 
-How EcoSort Works
+## How EcoSort Works
 
 Humans recognize objects by looking at patterns. For example, glass usually has reflections, plastic often has a certain shape and texture, and cardboard has a unique surface appearance.
 
@@ -31,7 +31,7 @@ EcoSort was trained by showing an AI model thousands of pictures of different wa
 Examples of images used to train EcoSort.
 <img width="1182" height="166" alt="image" src="https://github.com/user-attachments/assets/b8d6f53b-d74c-4a6d-80bd-a49383747bae" />
 
-The Data
+## The Data
 
 EcoSort used the TrashNet dataset, which contains over 2,500 images divided into six categories:
 
@@ -65,11 +65,11 @@ The main model used was ResNet-18, a computer vision model that can recognize pa
 
 I adapted this model so it could specialize in identifying recycling materials.
 
-Testing Different Methods
+## Testing Different Methods
 
 To see if EcoSort was actually improving, I compared it against simpler methods.
 
-Random Guessing
+#### Random Guessing
 
 This method randomly guesses a category.
 
@@ -78,7 +78,7 @@ Accuracy:
 
 This shows what happens when there is no understanding of the images.
 
-Guessing the Most Common Material
+#### Guessing the Most Common Material
 
 This method always predicts the category that appears most often.
 
@@ -87,7 +87,7 @@ Accuracy:
 
 It performs slightly better but does not actually analyze the image.
 
-Logistic Regression
+#### Logistic Regression
 
 This was a basic machine learning method that looked at image information directly.
 
@@ -96,7 +96,7 @@ Accuracy:
 
 This showed that simple methods could find some patterns, but they were limited.
 
-CLIP
+## CLIP
 
 CLIP is an AI model that can compare images with text descriptions.
 
@@ -110,7 +110,7 @@ Accuracy:
 
 This was impressive because CLIP was not specifically trained on recycling images.
 
-EcoSort Final Model
+## EcoSort Final Model
 
 The final ResNet-18 model achieved:
 
@@ -144,7 +144,7 @@ Where the model made correct and incorrect predictions.
 <img width="565" height="526" alt="image" src="https://github.com/user-attachments/assets/afa956ef-9453-40a7-8f76-2cc34615aa59" />
 
 
-Understanding Mistakes
+## Understanding Mistakes
 
 Accuracy does not tell the whole story. Looking at mistakes helps explain where the AI struggles.
 
@@ -162,7 +162,7 @@ Examples where EcoSort predicted the wrong material.
 <img width="1433" height="593" alt="image" src="https://github.com/user-attachments/assets/a352ea47-e07e-4f00-b693-cb1c8c4d6dfc" />
 
 
-Future Improvements
+## Future Improvements
 
 Although EcoSort performed well, there are still improvements that could make it more useful in real recycling systems.
 
