@@ -13,6 +13,11 @@ The goal of this project was to create **EcoSort**, an artificial intelligence s
 - Plastic
 - Trash
 
+The distribution of images across each category is shown below.
+
+![Dataset Distribution](blog_figures/class_distribution.png)
+https://colab.research.google.com/drive/1LnbmKEdBGv60NltmRHv-WNA6FM7AgwzC#scrollTo=Cg3yZl-4S7ip&line=1&uniqifier=1
+
 This provides more useful information because recycling systems can use the material type to determine how an object should be processed.
 
 The main research question of this project was:
@@ -127,6 +132,7 @@ https://colab.research.google.com/drive/1LnbmKEdBGv60NltmRHv-WNA6FM7AgwzC#scroll
 Analyzing these mistakes helped show where future improvements could be made. A larger and more realistic dataset containing dirty, damaged, and overlapping objects would likely improve performance in real-world recycling environments.
 
 Compared to general-purpose AI models such as CLIP, EcoSort performed better because it was specifically trained for the recycling classification task. This demonstrates the importance of adapting AI systems to specific applications.
+The CLIP model performed better than traditional approaches but worse than the fine-tuned ResNet-18 model. This suggests that general-purpose vision models already contain useful knowledge about objects, but specialized training improves performance for specific tasks such as recycling classification.
 
 ---
 
