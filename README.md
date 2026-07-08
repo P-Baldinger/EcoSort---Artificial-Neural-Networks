@@ -173,18 +173,18 @@ Although EcoSort performed well, there are still improvements that could make it
 
 The current dataset contains mostly clean images with one object at a time. Real recycling environments are more difficult because objects may be:
 
-Dirty
-Damaged
-Overlapping
-Poorly lit
+Dirty,
+Damaged,
+Overlapping,
+Poorly lit,
 
 Future improvements could include:
 
-Training on larger real-world recycling datasets
-Detecting multiple objects in one image
-Creating a mobile app version
+Training on larger real-world recycling datasets,
+Detecting multiple objects in one image,
+Creating a mobile app version,
 Connecting the model to automated sorting machines
-Conclusion
+##Conclusion
 
 EcoSort shows how artificial intelligence can help improve recycling by identifying materials from images.
 
