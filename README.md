@@ -1,193 +1,143 @@
 # EcoSort: Teaching AI to Recognize Recyclable Materials Through Images
-## Introduction
 
-Every day, people throw away millions of tons of waste. One challenge with recycling is figuring out what materials objects are made from. Humans can easily tell the difference between a plastic bottle and a glass container, but computers need to learn how to recognize these differences.
+## Introduction and Problem Statement
 
-For this project, I created EcoSort, an artificial intelligence system that looks at images of waste and predicts what material they contain.
+Every day, millions of tons of waste are produced around the world. One major challenge in improving recycling systems is correctly identifying what materials objects are made from. Humans can easily recognize the difference between materials such as plastic, glass, and cardboard, but computers need to learn these patterns from examples.
 
-Instead of only asking "Is this recyclable?", EcoSort identifies the specific material:
+The goal of this project was to create **EcoSort**, an artificial intelligence system that can analyze images of waste and predict the material category. Instead of only answering whether an object is recyclable or not, EcoSort identifies the specific material:
 
-Cardboard
-Glass
-Metal
-Paper
-Plastic
-Trash
+- Cardboard
+- Glass
+- Metal
+- Paper
+- Plastic
+- Trash
 
-This gives more useful information because recycling systems can use the material type to decide how an item should be handled.
+This provides more useful information because recycling systems can use the material type to determine how an object should be processed.
 
-The dataset used for this project is the TrashNet dataset:
+The main research question of this project was:
+
+**Can an neural network model accurately identify different types of waste from images, and can it outperform simpler classification methods?**
+
+---
+
+# Methodology & Data
+
+EcoSort uses computer vision, a field of artificial intelligence where models learn patterns from images. Humans recognize objects by noticing features such as shape, texture, and color. A neural network works similarly by learning these patterns from many examples.
+
+The dataset used for this project was the **TrashNet dataset**, which contains over 2,500 labeled images of waste materials.
+
+Dataset source:
 
 https://github.com/garythung/trashnet
 
-Github link:
+The dataset contains six categories:
 
-https://github.com/P-Baldinger/EcoSort---Artificial-Neural-Networks
+- Cardboard
+- Glass
+- Metal
+- Paper
+- Plastic
+- Trash
 
-## How EcoSort Works
+The images were divided into three groups:
 
-Humans recognize objects by looking at patterns. For example, glass usually has reflections, plastic often has a certain shape and texture, and cardboard has a unique surface appearance.
+- **Training data (70%)**: Used to teach the model how to recognize materials.
+- **Validation data (15%)**: Used to monitor model improvement during training.
+- **Testing data (15%)**: Used to measure final performance on images the model had never seen before.
 
-Computers do not naturally understand these differences. Instead, they learn by studying many examples.
+Before training, images were:
 
-EcoSort was trained by showing an AI model thousands of pictures of different waste materials. The model looked for patterns in these images and learned how to classify new examples.
+1. Resized to the same dimensions.
+2. Normalized so they could be processed consistently.
+3. Augmented with small changes such as rotation and flipping to improve robustness.
 
-Examples of images used to train EcoSort.
-![Dataset examples](619070220-b8d6f53b-d74c-4a6d-80bd-a49383747bae.png)
+The main neural network used was **ResNet-18**, a convolutional neural network designed for image recognition. Instead of training a completely new model, I used transfer learning. This allows the model to start with knowledge learned from millions of previous images and adapt it to recognizing recycling materials.
 
-## The Data
+To evaluate whether the neural network was actually learning useful information, EcoSort was compared against several simpler approaches:
 
-EcoSort used the TrashNet dataset, which contains over 2,500 images divided into six categories:
+- Random guessing
+- Predicting the most common class
+- Logistic Regression
+- CLIP zero-shot classification
 
-Cardboard
-Glass
-Metal
-Paper
-Plastic
-Trash
+---
 
-The images were split into three groups:
+# Results
 
-Training data (70%)
-Used to teach the AI model.
+The final EcoSort model achieved:
 
-Validation data (15%)
-Used to check how the model was improving.
+## 88.6% Test Accuracy
 
-Testing data (15%)
-Used to measure how well the final model worked on images it had never seen before.
+This means the model correctly identified the material type in nearly 9 out of 10 unseen test images.
 
-Keeping separate testing data helps make sure the model is actually learning instead of memorizing pictures.
+The model results compared to other approaches were:
 
-## Teaching the AI Model
+| Model | Accuracy |
+|---|---:|
+| Random Guessing | 16.4% |
+| Most Common Class | 23.4% |
+| Logistic Regression | 46.6% |
+| CLIP Zero-Shot | 67.4% |
+| ResNet-18 EcoSort | 88.6% |
 
-Instead of building an AI model from the beginning, I used a method called transfer learning.
+![Model comparison](blog_figures/model_comparison.png)
 
-Transfer learning allows a model that already understands general images to learn a new task faster. It is similar to teaching someone who already knows basic shapes and objects how to identify recycling materials.
+The model performed especially well on:
 
-The main model used was ResNet-18, a computer vision model that can recognize patterns such as shapes, colors, and textures.
-
-I adapted this model so it could specialize in identifying recycling materials.
-
-## Testing Different Methods
-
-To see if EcoSort was actually improving, I compared it against simpler methods.
-
-#### Random Guessing
-
-This method randomly guesses a category.
-
-Accuracy:
-16.4%
-
-This shows what happens when there is no understanding of the images.
-
-#### Guessing the Most Common Material
-
-This method always predicts the category that appears most often.
-
-Accuracy:
-23.4%
-
-It performs slightly better but does not actually analyze the image.
-
-#### Logistic Regression
-
-This was a basic machine learning method that looked at image information directly.
-
-Accuracy:
-46.6%
-
-This showed that simple methods could find some patterns, but they were limited.
-
-## CLIP
-
-CLIP is an AI model that can compare images with text descriptions.
-
-For example, it can compare an image with:
-
-"a photo of glass"
-"a photo of plastic"
-
-Accuracy:
-67.4%
-
-This was impressive because CLIP was not specifically trained on recycling images.
-
-## EcoSort Final Model
-
-The final ResNet-18 model achieved:
-
-88.6% Accuracy
-
-This means the model correctly identified the material in almost 9 out of 10 test images.
-
-Comparison of EcoSort against other approaches.
-![Dataset examples](619071658-04cca6d3-105e-4e4f-b896-495b70b7071a.png)
-
-
-How Well Did EcoSort Perform?
-
-The model was especially good at identifying:
-
-Metal: 95.2%
-Cardboard: 95.1%
-Paper: 94.4%
-Plastic: 93.2%
-
-These materials usually have clear visual features that make them easier to recognize.
+| Material | Accuracy |
+|---|---:|
+| Metal | 95.2% |
+| Cardboard | 95.1% |
+| Paper | 94.4% |
+| Plastic | 93.2% |
 
 The hardest categories were:
 
-Glass: 76.3%
-Trash: 72.7%
+| Material | Accuracy |
+|---|---:|
+| Glass | 76.3% |
+| Trash | 72.7% |
 
-Glass was difficult because it can look similar to plastic or metal. Trash was challenging because it contains many different objects that do not share one clear appearance.
+The confusion matrix below shows how often the model correctly classified each material and where mistakes occurred.
 
-Where the model made correct and incorrect predictions.
+![Confusion Matrix](blog_figures/confusion_matrix.png)
 
-![Dataset examples](619072368-afa956ef-9453-40a7-8f76-2cc34615aa59.png)
+---
 
+# Discussion
 
-## Understanding Mistakes
+The results show that a specialized computer vision model can recognize waste materials much better than simpler approaches. Random guessing and basic machine learning methods struggled because they could not effectively understand complex visual patterns.
 
-Accuracy does not tell the whole story. Looking at mistakes helps explain where the AI struggles.
+The ResNet-18 model performed best because it was able to learn important image features such as shapes, textures, and material appearance.
 
-The most common errors were:
+However, some challenges remained. The model had more difficulty identifying glass and trash. Glass objects often have similar appearances to plastic or metal because of reflections and transparency. Trash was difficult because it contains many different objects that do not share a consistent visual pattern.
 
-Glass → Plastic
-Glass → Metal
-Trash → Plastic
+The most common mistakes were:
 
-These mistakes are understandable because some materials look very similar.
+- Glass → Plastic
+- Glass → Metal
+- Trash → Plastic
 
-For example, a clear plastic bottle and a glass bottle may have similar shapes, colors, and reflections.
+![Model mistakes](blog_figures/mistakes.png)
 
-Examples where EcoSort predicted the wrong material.
-![Dataset examples](619072514-a352ea47-e07e-4f00-b693-cb1c8c4d6dfc.png)
+Analyzing these mistakes helped show where future improvements could be made. A larger and more realistic dataset containing dirty, damaged, and overlapping objects would likely improve performance in real-world recycling environments.
 
+Compared to general-purpose AI models such as CLIP, EcoSort performed better because it was specifically trained for the recycling classification task. This demonstrates the importance of adapting AI systems to specific applications.
 
-## Future Improvements
+---
 
-Although EcoSort performed well, there are still improvements that could make it more useful in real recycling systems.
+# Conclusion
 
-The current dataset contains mostly clean images with one object at a time. Real recycling environments are more difficult because objects may be:
+EcoSort demonstrates that artificial intelligence can successfully identify recyclable materials from images.
 
-Dirty,
-Damaged,
-Overlapping,
-Poorly lit
+The ResNet-18 model achieved 88.6% accuracy and significantly outperformed simpler approaches, showing that deep learning models can learn meaningful patterns from waste images.
+
+Although AI alone cannot solve the global recycling problem, systems like EcoSort could help improve automated sorting by making recycling faster, more consistent, and more efficient.
 
 Future improvements could include:
 
-Training on larger real-world recycling datasets,
-Detecting multiple objects in one image,
-Creating a mobile app version,
-Connecting the model to automated sorting machines
-##Conclusion
-
-EcoSort shows how artificial intelligence can help improve recycling by identifying materials from images.
-
-The project demonstrated that AI can learn to recognize different waste materials and achieve much higher accuracy than simple methods.
-
-While AI cannot solve the entire waste problem by itself, systems like EcoSort could help make recycling faster, easier, and more efficient.
+- Training on larger real-world recycling datasets
+- Detecting multiple objects in a single image
+- Creating a mobile application
+- Connecting the model to automated sorting systems
